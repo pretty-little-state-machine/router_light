@@ -1,23 +1,48 @@
 # Router Light
 
-This is the top-level directory for a future poncho-style Nerves Project. This is 
-a consolidated README.
+A personal project to experiment with the Nerves IOT framework. There is a blog writeup
+about this project here: [ItWasScience Blog](https://www.itwasscience.com/blog/router-light)
 
-# Router Light Firmware Project
+This project serves as a sub-second monitoring system for my home router's two internet 
+connections. It provides a physical view with an LED as well as a UI served by Phoenix.
+
+The SNMP polls, light updates and UI updates occur every 300 milliseconds.
+
+![Picture of Light](images/hardware.jpg?raw=true)
+
+**UI - Insprired by Evangelion's NERV systems**
+![Picture of Light](images/ui_short.jpg?raw=true)
+
+Below are both child READMEs:
+
+# Router_Light_UI
+
+A GUI for the NERV UI frontend. Follow the typical Phoenix instructions to install below.
+
+There are only two pages:
+
+`/` - Index - Shows the live connection monitor - **Should not be used unless the firmware is 
+also running**
+
+`/mock` - Shows a mock dashboard fed with fake data for dashboard testing - If you are
+just curious about the project this is the path you want to run as it doesn't rely on 
+any firmware functionality.
+
+# Router_Light_Firmware
 
 A simple Nerves project using the Erlang SNMP application as a manager to monitor 
 my home router internet status and set an indicator light using GPIO pins. We have
 two internet connections at our house: a T1 interface for our low-latency traffic 
 and an LTE modem that we shunt everything else to.
 
-| T1 IfOper State    | T1 SLA State (20)  | LTE SLA State (10) | Status Color |
-| ------------------ | ------------------ |--------------------|--------------|
-| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Blue         |
-| :heavy_check_mark: | :heavy_check_mark: | :x:                | Green        |
-| :x:                | :heavy_check_mark: | :heavy_check_mark: | Purple       |
-| :heavy_check_mark: | :x:                | :heavy_check_mark: | Purple       |
-| :x:                | :x:                | :heavy_check_mark: | Purple       |
-| :x:                | :x:                | :x:                | Red          |
+| T1 IfOper State    | T1 SLA State (20)  | LTE SLA State (10) | Status Color           |
+| ------------------ | ------------------ |--------------------|----------------------- |
+| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :blue_square: Blue     |
+| :heavy_check_mark: | :heavy_check_mark: | :x:                | :green_square: Green   |
+| :x:                | :heavy_check_mark: | :heavy_check_mark: | :purple_square: Purple |
+| :heavy_check_mark: | :x:                | :heavy_check_mark: | :purple_square: Purple |
+| :x:                | :x:                | :heavy_check_mark: | :purple_square: Purple |
+| :x:                | :x:                | :x:                | :red_square: Red       |
 
 The indicator is set to yellow until the system initially polls the router.
 

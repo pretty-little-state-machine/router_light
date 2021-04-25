@@ -1,5 +1,17 @@
 # RouterLightUi
 
+A GUI for the NERV UI frontend. Follow the typical Phoenix instructions to install below.
+
+There are only two pages:
+
+`/` - Index - Shows the live connection monitor - **Should not be used unless the firmware is 
+also running**
+
+`/mock` - Shows a mock dashboard fed with fake data for dashboard testing - If you are
+just curious about the project this is the path you want to run as it doesn't rely on 
+any firmware functionality.
+
+# Auto-Generated Phoenix Documentation
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
