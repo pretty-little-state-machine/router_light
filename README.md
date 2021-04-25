@@ -1,7 +1,8 @@
 # Router Light
 
-A personal project to experiment with the Nerves IOT framework. There is a blog writeup
-about this project here: [ItWasScience Blog](https://www.itwasscience.com/blog/router-light)
+A personal project to experiment with the [Nerves](https://www.nerves-project.org/) IOT framework.
+There is a blog writeup about this project here: 
+[ItWasScience Blog](https://www.itwasscience.com/blog/router-light)
 
 This project serves as a sub-second monitoring system for my home router's two internet 
 connections. It provides a physical view with an LED as well as a UI served by Phoenix.
