@@ -22,7 +22,7 @@ internet connection. ICMP echos are sent every 3 seconds on the LTE and every 60
 seconds on the T1. Since the T1 probe is so slow to notify the physical interface 
 itself is monitored as well.
 
-The SNMP poller runs every 500 milliseconds and typically takes <10ms to receive
+The SNMP poller runs every 300 milliseconds and typically takes <10ms to receive
 a response from my home router.
 
 ```#show ip sla statistics details
