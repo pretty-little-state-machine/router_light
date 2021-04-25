@@ -1,0 +1,136 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+<div phx-update="ignore">
+  <div id="dashboard-container" class="nerv-grid" phx-hook="dashboard">
+    <!-- Headers -->
+    <div class="nerv-grid-header">
+      <div class="nerv-grid-header-rule">
+        <hr class="nerv-hr">
+      </div>
+      <div class="nerv-grid-header-logo">
+      <div class="nerv-yellow-text nerv-text-glow nerv-container nerv-compressed" style="margin-left: 20px;">
+        <div class="nerv-medium-text nerv-height-expand">WTF.EXAMPLE.NET</div>
+        <div class="nerv-big-text nerv-height-expand">NETWORK MONITORING STATUS</div>
+      </div>
+      </div>
+      <div class="nerv-grid-header-status">
+        <div style="margin-left: 25px" class="nerv-orange-text nerv-container nerv-compressed">
+          <div style="text-align: center" class="nerv-height-expand nerv-smear-red">SIGNALLING PATTERN</div>
+          <div style="margin-top: 10px" class="nerv-big-text nerv-center-text"><span id="status-color">&nbsp</span></div>
+        </div>
+      </div>
+      <div class="nerv-grid-header-timer">
+        <div style="margin-left: 25px" class="nerv-orange-text nerv-container nerv-compressed">
+          <div style="text-align: center" class="nerv-height-expand nerv-smear-red">SYSTEM STABILITY</div>
+          <div id="timer-hhmmss" class="nerv-orange-text nerv-smear-red nerv-font-digital" style="float: left;">00:43:68</div>
+          <div id="timer-msecs" class="nerv-orange-text nerv-smear-red nerv-font-digital" style="margin-top: 12px;  float: left; font-size: 28px">:743</div>
+        </div>
+      </div>
+      <div class="nerv-grid-header-rule-bottom">
+        <hr class="nerv-hr">
+      </div>
+    </div>
+    <!-- SLA Row -->
+    <div class="nerv-grid-t1-sla">
+      <!-- T1 SLA Monitoring -->
+      <div style="display: inline-block; float: left; margin-top: 10px;">
+        <div class="nerv-orange-text nerv-smear-red nerv-compressed">
+          <div class="nerv-height-expand">LOW LATENCY INTERFACE</div>
+          <div class="nerv-height-expand">IP SLA MONITOR: 20</div>
+          <div class="nerv-height-expand">TARGET: GENERIC T1</div>
+        </div>
+        <div style="margin-top: 5px; display: inline-block; float: left;">
+          <div id="t1-latency-bars" class="nerv-progress-container" style="display: inline-block; float: left;">
+            <div class="nerv-progress-item nerv-progress-filled"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+            <div class="nerv-progress-item"></div>
+          </div>
+          <div style="display: inline-block; float: left; margin-top: 18px;">
+            <div style="display: flex;">
+              <div id = "t1-latency-value" style="float: left" class="nerv-orange-text nerv-smear-red nerv-big-text nerv-height-expand">8</div>
+              <div id = "t1-latency-suffix" style="align-self: flex-end; padding-left: 2px;" class="nerv-orange-text nerv-smear-red nerv-height-expand">MSECS
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LTE SLA Monitoring -->
+    <div class="nerv-grid-lte-sla">
+      <div>
+        <div style="display: inline-block; float: left; margin-top: 10px;">
+          <div class="nerv-orange-text nerv-smear-red nerv-compressed">
+            <div class="nerv-height-expand">HIGH BANDWIDTH INTERFACE</div>
+            <div class="nerv-height-expand">IP SLA MONITOR: 10</div>
+            <div class="nerv-height-expand">TARGET: GENERIC LTE</div>
+          </div>
+          <div style="margin-top: 5px; display: inline-block; float: left;">
+            <div id="lte-latency-bars" class="nerv-progress-container" style="display: inline-block; float: left;">
+              <div class="nerv-progress-item nerv-progress-filled"></div>
+              <div class="nerv-progress-item nerv-progress-filled"></div>
+              <div class="nerv-progress-item nerv-progress-filled"></div>
+              <div class="nerv-progress-item nerv-progress-filled"></div>
+              <div class="nerv-progress-item nerv-progress-filled"></div>
+              <div class="nerv-progress-item nerv-progress-filled"></div>
+              <div class="nerv-progress-item nerv-progress-filled"></div>
+              <div class="nerv-progress-item"></div>
+              <div class="nerv-progress-item"></div>
+              <div class="nerv-progress-item"></div>
+              <div class="nerv-progress-item"></div>
+              <div class="nerv-progress-item"></div>
+              <div class="nerv-progress-item"></div>
+              <div class="nerv-progress-item"></div>
+              <div class="nerv-progress-item"></div>
+            </div>
+            <div style="display: inline-block; float: left; margin-top: 18px;">
+              <div style="display: flex;">
+                <div id = "lte-latency-value" style="float: left" class="nerv-orange-text nerv-smear-red nerv-big-text nerv-height-expand">68</div>
+                <div id = "lte-latency-suffix"  style="align-self: flex-end; padding-left: 2px;" class="nerv-orange-text nerv-smear-red nerv-height-expand">MSECS
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nerv-grid-buffer-sla">
+    </div>
+    <!-- T1 Graph -->
+    <div class="nerv-grid-t1-graph">
+      <div style="margin-bottom: 10px" class="nerv-orange-text nerv-smear-red nerv-big-text nerv-height-expand">
+        T1 TRAFFIC PATTERN
+      </div>
+      <div style="width: 600px; height: 300px">
+        <canvas id="t1_traffic"></canvas>
+      </div>
+    </div>
+    <!-- LTE Graph -->
+    <div class="nerv-grid-lte-graph">
+      <div style="margin-bottom: 10px" class="nerv-orange-text nerv-smear-red nerv-big-text nerv-height-expand">
+        LTE TRAFFIC PATTERN
+        <br>
+      </div>
+      <div style="width: 600px; height: 300px">
+        <canvas id="lte_traffic"></canvas>
+      </div>
+    </div>
+    <div class="nerv-grid-buffer-graph">
+    </div>
+    <div class="nerv-grid-logs">
+      <hr class="nerv-hr">
+      <div id="log-content" style="font-size: 1.1em; padding: 20px;">
+      </div>
+    </div>
+  </div>
+</div>
