@@ -11,7 +11,7 @@ The SNMP polls, light updates and UI updates occur every 300 milliseconds.
 ![Picture of Light](images/hardware.jpg?raw=true)
 
 **UI - Insprired by Evangelion's NERV systems**
-![Picture of Light](images/ui_short.jpg?raw=true)
+![Picture of UI](images/ui_short.gif?raw=true)
 
 Below are both child READMEs:
 
